@@ -1,0 +1,32 @@
+CREATE DATABASE DEMO;
+
+CREATE TABLE EMPDEPARTMENT (
+    DID VARCHAR(10) PRIMARY KEY,
+    DNAME VARCHAR(50) NOT NULL,
+    DHEAD_NAME VARCHAR(50)
+);
+
+INSERT INTO EMPDEPARTMENT VALUES
+('D101', 'HR', 'abc'),
+('D102', 'R AND D', 'bbc'),
+('D103', 'Accounting', 'vvs'),
+('D104', 'Finance', 'nnn'),
+('D105', 'QA', 'ppp'),
+('D106', 'Marketing', 'ggg')
+;
+
+SELECT * FROM EMPDEPARTMENT;
+
+
+CREATE TABLE EMPDATA (EMPID VARCHAR(50) PRIMARY KEY , EMPNAME VARCHAR (50) NOT NULL , ADDRESS VARCHAR (50) , 
+PHONENO BIGINT , DESIGNATION VARCHAR (50) , DEPARTMENT VARCHAR(30) , SALARY BIGINT , DOJ DATE , MAILID VARCHAR (100) , DEPID VARCHAR(10) );
+
+	INSERT INTO EMPDATA VALUES
+	('E101', 'Nira', 'Pune', 9876543210, 'Manager', 'R AND D', 60000, '2020-06-10', 'nira@mail.com', 'D02'),
+	('E102', 'Rahul', 'Mumbai', 9876501234, 'Tester', 'HR', 40000, '2021-01-15', 'rahul@mail.com', 'D01'),
+	('E103', 'Priya', 'Delhi', 8765432109, 'Accountant', 'Accounting', 45000, '2019-03-25', 'priya@mail.com', 'D03'),
+	('E104', 'Anita', 'Pune', 9876598765, 'QA Engineer', 'QA', 42000, '2022-07-20', 'anita@mail.com', 'D05');
+
+SELECT * FROM EMPDATA;
+
+select * from EMPDEPARTMENT D INNER JOIN EMPDATA E ON D.DID = E.DEPID;
